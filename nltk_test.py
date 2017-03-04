@@ -1,52 +1,40 @@
 import nltk
 
-pos_tweets = [('I love this car', 'positive'),
-              ('This view is amazing', 'positive'),
-              ('I feel great this morning', 'positive'),
-              ('I am so excited about the concert', 'positive'),
-              ('He is my best friend', 'positive')]
+def process(messages):
+    '''given a lists of messages, splits the messages and deletes words with length less than 3'''
+    processed_messages = []
+    for (words, sentiment) in messages:
+        words_filtered = [x.lower() for x in words.split() if len(x) >= 3]
+        processed_messages.append((words_filtered, sentiment))
+    return processed_messages
 
-neg_tweets = [('I do not like this car', 'negative'),
-              ('This view is horrible', 'negative'),
-              ('I feel tired this morning', 'negative'),
-              ('I am not looking forward to the concert', 'negative'),
-              ('He is my enemy', 'negative')]
-
-test_tweets = [('I feel happy this morning', 'positive'),
-('Larry is my friend', 'positive'),
-('I do not like that man', 'negative'),
-('My house is not great', 'negative'),
-('Your song is annoying', 'negative')]
-
-def process(tweets):
-    processed_tweets = []
-    for (words, sentiment) in tweets:
-        words_filtered = [e.lower() for e in words.split() if len(e) >= 3]
-        processed_tweets.append((words_filtered, sentiment))
-    return processed_tweets
-
-tweets = process(pos_tweets+neg_tweets)
-
-def get_words_in_tweets(tweets):
+def get_words_in_messages(processed_messages):
+    '''given a list of processed messages, returns a list of all the words'''
     all_words = []
-    for (words, sentiment) in tweets:
+    for (words, sentiment) in processed_messages:
         all_words.extend(words)
     return all_words
 
-def get_word_features(wordlist):
-    wordlist = nltk.FreqDist(wordlist)
-    word_features = wordlist.keys()
+def get_word_features(all_words):
+    '''given a word list, returns a list with words in order of freuqency'''
+    word_list = nltk.FreqDist(all_words)
+    word_features = word_list.keys()
     return word_features
 
-word_features = get_word_features(get_words_in_tweets(process(pos_tweets+neg_tweets)))
+word_features = get_word_features(get_words_in_messages(process(messages)))
 
 def extract_features(document):
+    '''given a list of strings, returns a dictionary indicating what words are contained in the input passed '''
     document_words = set(document)
     features = {}
     for word in word_features:
         features['contains(%s)' % word] = (word in document_words)
     return features
 
-training_set = nltk.classify.apply_features(extract_features, tweets)
-
-classifier = nltk.NaiveBayesClassifier.train(training_set)
+def get_classifier(messages):
+    '''given a list of messages, returns a classifier trained by the messages'''
+    processed_messages = process(messages)
+    word_features = get_word_features(get_words_in_messages(processed_messages))
+    training_set = nltk.classify.apply_features(extract_features, processed_messages)
+    classifier = nltk.NaiveBayesClassifier.train(training_set)
+    return classifier
