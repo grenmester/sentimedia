@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Flask Intro</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
-  <body>
-    <div class="container">
-      <h1>Welcome to Flask!</h2>
-      <br>
-      <p>Click <a href="/">here</a> to go home.</p>
-    </div>
-  </body>
+    <head>
+        <title>NLTK Test</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>NLTK Test</h1>
+            <br>
+            <p>Enter text below to be evaluated for sentiment.</p>
+            <label>Text</label>
+            <input type="text" name="text">
+            <input type="button" onclick="computeSentiment()" value="Submit">
+            <p id="sentiment"></p>
+            <p>{{ test_string }}</p>
+        </div>
+        <script>
+            function computeSentiment() {
+                document.getElementById("sentiment").innerHTML = "Test";
+            }
+        </script>
+    </body>
 </html>
