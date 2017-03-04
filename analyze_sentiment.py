@@ -28,12 +28,12 @@ def extract_features(document):
         features['contains(%s)' % word] = (word in document_words)
     return features
 
-def get_classifier(messages):
+def get_classifier(messages): #CALL THIS TO TRAIN A CLASSIFIER
     '''given a list of messages, returns a classifier trained by the messages'''
     processed_messages = process(messages)
     training_set = nltk.classify.apply_features(extract_features, processed_messages)
     classifier = nltk.NaiveBayesClassifier.train(training_set)
     return classifier
 
-def analyze(message, classifier):
+def analyze(message, classifier): #CALL THIS TO ANALYZE A YT COMMENT
     return classifier.classify(extract_features(message.split()))
