@@ -4,20 +4,21 @@
         <title>NLTK Test</title>
     </head>
     <body>
+		<script>
+			function computeSentiment() {
+				var testValue = document.getElementById('testMessage').value;
+				document.getElementById('sentiment').innerHTML = testValue;
+			}
+		</script>
         <div class="container">
             <h1>NLTK Test</h1>
             <br>
             <p>Enter text below to be evaluated for sentiment.</p>
             <label>Text</label>
-            <input type="text" name="text">
-            <input type="button" onclick="computeSentiment()" value="Submit">
+            <input type="text" id="testMessage">
+            <input type="button" onclick='computeSentiment();' value="Submit">
             <p id="sentiment"></p>
             <p>{{ test_string }}</p>
         </div>
-        <script>
-            function computeSentiment() {
-                document.getElementById("sentiment").innerHTML = "Test";
-            }
-        </script>
     </body>
 </html>
