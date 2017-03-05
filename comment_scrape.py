@@ -43,6 +43,11 @@ def get_video_comments(vid):
 
     return final_comments
 
+def get_video_id(vid):
+    video_id = urlparse(str(vid))
+    q = parse_qs(video_id.query)
+    vidID = q["v"][0]
+    return vidID
 
 def openURL(url, parms):
         f = urlopen(url + '?' + urlencode(parms))
