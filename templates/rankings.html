@@ -14,7 +14,7 @@
   </head>
   <body>
     <div class = "container-fluid">
-        <div class = "row" style = "background-color: #1abc9c; display: flex">
+        <div class = "row" style = "background-color: #b31217; display: flex">
             <div class = "col-xs-12">
                 <h2 style ="margin-left:20px;">SentiMedia - Channel Rankings</h2>
             </div>
@@ -41,7 +41,7 @@
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2 centered">
 					<h1>YouTube Data Analysis</h1>
-					<p>Welcome! SentiMedia is a web application for analyzing the sentiment associated with YouTube videos based on their comments and ratings. Simply enter the URL of the YouTube video below and click "Enter" to view the results.</p>
+					<p>Welcome! On, this last page, SentiMedia gathers the results of comments on a YouTube channel, calculates the results, and displays them to you.  </p>
                     <form action="" method="post">
 				        <label>Youtube URL: </label>
 				        <input type="text" name="video-url" id="video-url" styles="width:450px">
@@ -59,10 +59,9 @@
 		</div><!-- /row -->
 		<div class="row mt centered">
 		    <div id="ww">
+                <p>Grants you a look into a brief history of a YouTube channel, by reviewing what comments were left on the channel by other users.  A channel with generally more positive comments is clearly a more uplifting channel, whereas a channel with more negative channel can be seen in a less favorable light.</p>
                 <p>SentiMedia uses machine learning to read and process YouTube comments that are highly rated. It reads the comments and evaluates which ones are positive and which ones are negative. The comments are then assigned numeric values according to their connotations; positive comments are assigned the value of 1 while negative comments are assigned the value of -1. After the highly rated comments are assigned values, the values are added together and normalized. This normalized score can fall anywhere between -1 and 1 and represents the sentiment left on the video by its viewers.</p>
                 <p>This number can be interpreted a representation of the YouTuber's popularity among his or her viewers. If a video has a normaized score of closer to -1, then their video has a fairly large amount of negative comments. On the other hand, if a video has a normalized score closer to 1, then their video has very few negative comments.</p>
-				<p>In order to prepare our program to complete these sentiment evaluations, we coded it to do machine learning.  We passed our program a data set consisting of over 1 million pre-labeled tweets. All of the tweets were labeled as either negative or positive.  from which it would iterate over and learn from recurring patterns. Although we can't perfect it's accuracy, passing it over 1 million values definitely brought us closer to that goal. Lurking variables that may skew the outcome include sarcastic comments, jokes, slang, and spam comments.</p>
-                <p>Comment sentiment ratios differ from pure video ratings (thumbs up and down) because comments provide more insight into why the video did as well (or as bad) as it did. Future functionalities that we'd like to implement include pulling the most recurring key words, displaying graphs to better compare and visualize data, and pulling from sources other than YouTube comments.</p>
 				<p id="normalizedScore"></p>
 	        </div><!-- /ww -->
 		</div><!-- /row -->
@@ -88,15 +87,16 @@
 					</p>
 				</div><!-- /col-lg-4 -->
 				<div class = "col-lg-4">
-					<h4 class = "text-center">The Team</h4>
-					<div class="col-lg-6" style = "float:left">
-						<p class="text-center">Arkin Gupta<br/>
-						Ryan Fong</p>
-					</div><!-- /col-lg-4 -->
-					<div class = "col-lg-6" style = "float:right">
-						<p class = "text-center">Jacky Lee</br>
-						Terrence Ho</p>
-				</div>
+                    <h4 class = "text-center">The Team</h4>
+                    <div class="col-lg-6" style = "float:left">
+                        <p class="text-center"><a href = "https://github.com/arkingupta" class = "white-link" target = "_blank">Arkin Gupta</a><br/>
+                        <a href = "https://github.com/ryanrfong" class = "white-link" target = "_blank">Ryan Fong</a></p>
+                    </div><!-- /col-lg-4 -->
+                    <div class = "col-lg-6" style = "float:right">
+                        <p class = "text-center"><a href = "https://github.com/grenmester" class="white-link" target = "_blank">Jacky Lee</a></br>
+                        <a href = "https://github.com/TerrenceHo" class = "white-link" target = "_blank">Terrence Ho</a></p>
+                    </div>
+                </div>
 			</div>
 		</div>
 	</div>

@@ -14,7 +14,7 @@
   </head>
   <body>
     <div class = "container-fluid">
-        <div class = "row" style = "background-color: #1abc9c; display: flex">
+        <div class = "row" style = "background-color: #b31217; display: flex">
             <div class = "col-xs-12">
                 <h2 style ="margin-left:20px;">SentiMedia - Individual</h2>
             </div>
@@ -41,7 +41,7 @@
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2 centered">
 					<h1>YouTube Data Analysis</h1>
-					<p>Welcome! SentiMedia is a web application for analyzing the sentiment associated with YouTube videos based on their comments and ratings. Simply enter the URL of the YouTube video below and click "Enter" to view the results.</p>
+					<p>To view comment scores, simply enter the URL of the YouTube video below and click "Enter" to view the results.</p>
                     <form action="" method="post">
 				        <label>Youtube URL: </label>
 				        <input type="text" name="video-url" id="video-url" styles="width:450px">
@@ -56,14 +56,12 @@
 	<div class="container pt">
 		<div class="row mt centered">
             <h3 id="normalizedScore"></h3>
-            <iframe id="url" width="853" height="480" src="https://www.youtube.com/embed/MoB2OhPu6w8" frameborder="0" allowfullscreen></iframe>
+            <iframe width="640" height="360" src="https://www.youtube.com/embed/N5mE-LzIKCI?ecver=1" frameborder="0" allowfullscreen></iframe>
 		</div><!-- /row -->
 		<div class="row mt centered">
 		    <div id="ww">
                 <p>SentiMedia uses machine learning to read and process YouTube comments that are highly rated. It reads the comments and evaluates which ones are positive and which ones are negative. The comments are then assigned numeric values according to their connotations; positive comments are assigned the value of 1 while negative comments are assigned the value of -1. After the highly rated comments are assigned values, the values are added together and normalized. This normalized score can fall anywhere between -1 and 1 and represents the sentiment left on the video by its viewers.</p>
                 <p>This number can be interpreted a representation of the YouTuber's popularity among his or her viewers. If a video has a normaized score of closer to -1, then their video has a fairly large amount of negative comments. On the other hand, if a video has a normalized score closer to 1, then their video has very few negative comments.</p>
-                <br>
-                <p class = "text-center"><a href = "/graph" target="_blank">Got time? Check out a Graph of Negative vs Positive Comments!</a></p>
 	        </div><!-- /ww -->
 		</div><!-- /row -->
 	</div><!-- /container -->
@@ -90,12 +88,13 @@
 				<div class = "col-lg-4">
 					<h4 class = "text-center">The Team</h4>
 					<div class="col-lg-6" style = "float:left">
-						<p class="text-center">Arkin Gupta<br/>
-						Ryan Fong</p>
+						<p class="text-center"><a href = "https://github.com/arkingupta" class = "white-link" target = "_blank">Arkin Gupta</a><br/>
+						<a href = "https://github.com/ryanrfong" class = "white-link" target = "_blank">Ryan Fong</a></p>
 					</div><!-- /col-lg-4 -->
 					<div class = "col-lg-6" style = "float:right">
-						<p class = "text-center">Jacky Lee</br>
-						Terrence Ho</p>
+						<p class = "text-center"><a href = "https://github.com/grenmester" class="white-link" target = "_blank">Jacky Lee</a></br>
+						<a href = "https://github.com/TerrenceHo" class = "white-link" target = "_blank">Terrence Ho</a></p>
+                    </div>
 				</div>
 			</div>
 		</div>
