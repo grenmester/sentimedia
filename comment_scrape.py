@@ -24,14 +24,13 @@ def get_video_comments(vid):
 
     parms = {
         'part': 'snippet',
-        'videoId': vidfinal,
+        'videoId': 'F90Cw4l-8NY',
         'key': 'AIzaSyBsuQEzXjJ81-8ywBftLva-0j19hWNMc1w'
             }
 
     try:
 
         matches = openURL('https://www.googleapis.com/youtube/v3/commentThreads', parms)
-        i = 0
         mat = json.loads(matches)
         load_comments()
 
@@ -44,34 +43,32 @@ def get_video_comments(vid):
     return final_comments
 
 def get_channel_comments(channel):
-    final_comments = []
-    def load_comments():
+    channel_comments = []
+    def load_channel_comments():
         for item in mat["items"]:
             comment = item["snippet"]["topLevelComment"]
             text = comment["snippet"]["textDisplay"]
-            final_comments.append(text)
-
+            channel_comments.append(text)
 
     try:
-        video_id = urlparse(str(vid))
-        q = parse_qs(video_id.query)
-        vidfinal = q["v"][0]
+        channel_id = channel.rsplit('/', 1)
+        chanfinal = channel_id[-1]
 
     except:
         print("Invalid YouTube URL")
 
     parms = {
         'part': 'snippet',
-        'channelId': vidfinal,
+        'channelId': chanfinal,
         'key': 'AIzaSyBsuQEzXjJ81-8ywBftLva-0j19hWNMc1w'
             }
 
     try:
 
+
         matches = openURL('https://www.googleapis.com/youtube/v3/commentThreads', parms)
-        i = 0
         mat = json.loads(matches)
-        load_comments()
+        load_channel_comments()
 
     except KeyboardInterrupt:
         print("User Aborted the Operation")
@@ -79,7 +76,7 @@ def get_channel_comments(channel):
     except:
         print("Cannot Open URL or Fetch comments at a moment")
 
-    return final_comments
+    return channel_comments
 
 def get_embed_id(vid):
     video_id = urlparse(str(vid))
