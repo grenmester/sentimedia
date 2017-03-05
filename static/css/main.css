@@ -21,10 +21,16 @@ body {
 }
 
 /* Titles */
-h1, h2, h3, h4, h5, h6 {
+h1 {
 	font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    color: #333;
+    color: #000000;
+}
+
+h2, h3, h4, h5, h6 {
+	font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #ffffff;
 }
 
 h1 {
@@ -48,7 +54,7 @@ p {
 
 /* Links */
 a {
-    color: #1abc9c;
+    color: #b31217;
     word-wrap: break-word;
 
     -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
@@ -78,7 +84,7 @@ a:after {
     display: block;
     height: 1px;
     border: 0;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid # e52;
     margin: 1em 0;
     padding: 0;
 }
@@ -94,8 +100,8 @@ a:after {
 }
 
 .navbar-inverse {
-	background-color: #1abc9c;
-	border-color: #16a085;
+	background-color: #b31217;
+	border-color: #ffffff;
 }
 
 .navbar-inverse .navbar-nav > li > a {
@@ -103,7 +109,7 @@ a:after {
 }
 
 .navbar-inverse .navbar-nav > li > a:hover {
-	color: #222222;
+	color: #b31217;
 }
 
 .navbar-brand {
@@ -121,7 +127,7 @@ a:after {
 }
 
 .progress-bar-theme {
-  background-color: #1abc9c;
+  background-color: #ff0000;
 }
 
 
@@ -137,18 +143,22 @@ a:after {
 	padding-bottom: 50px;
 }
 
+.white-link {
+	color: #FFFFFF;
+}
+
 
 /* +++++ WRAP SECTIONS +++++ */
 
 #ww {
 	padding-top: 70px;
 	padding-bottom: 70px;
-	background-color: #f2f2f2;
+	background-color: #CCCCCC;
 }
 
 
 #footer {
-	background-color: #2f2f2f;
+	background-color: #b31217;
 	padding-top: 50px;
 	padding-bottom: 50px;
 }
@@ -158,7 +168,7 @@ a:after {
 }
 
 #footer h4 {
-	color: white;
+	color: ffffff;
 	text-transform: uppercase;
 	padding-bottom: 20px;
 }
@@ -169,7 +179,7 @@ a:after {
 #grey {
 	padding-top: 60px;
 	padding-bottom: 60px;
-	background-color: #f2f2f2;
+	background-color: #ffffff;
 }
 
 #white {
@@ -184,7 +194,7 @@ a:after {
 bd {
 	font-size: 12px;
 	text-transform: uppercase;
-	color: #d2d2d2;
+	color: #ffffff;
 	font-weight: 700;
 }
 
@@ -237,5 +247,5 @@ bt {
 
 .glyphicon {
 	font-size: 40px;
-	color: #1abc9c;
+	color: #ff0000;
 }
