@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-	<title>TubeStats</title>
+	<title>SentiMedia</title>
     <!-- Bootstrap core CSS -->
     <link href="../static/css/bootstrap.css" rel="stylesheet">
 
@@ -14,21 +14,11 @@
     <link href="../static/css/main.css" rel="stylesheet">
   </head>
   <body>
-  <script>
-  		function viewMode(v) {
-			var i;
-			var x = document.getElementsByClassName("view");
-			for (i = 0; i < x.length; i++) {
-				x[i].style.display = "none";
-			}
-			document.getElementById(v).style.display = "block";
-		}
-  </script>
 
     <div class = "container-fluid">
         <div class = "row" style = "background-color: #1abc9c; display: flex">
             <div class = "col-xs-12">
-                <h2 style ="margin-left:20px;">TubeStats - Comparison</h2>
+                <h2 style ="margin-left:20px;">SentiMedia - Comparison</h2>
             </div>
         </div>
         <div class = "row">
@@ -37,7 +27,7 @@
             </div>
             <div class = "col-xs-6 centered">
                 <a href="comparison" class="btn-block" style = "font-size: large; margin-top: 15px; margin-bottom: 15px" role="button">Comparison</a>
-            </div>
+				</div>
         </div>
     </div>
 
@@ -46,11 +36,11 @@
 	    <div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2 centered">
-					<h1>HackTech 2017</h1>
-					<p>Welcome Hackers! TubeStats is a web application where you can type in the URL of a youtube video and get back its statistics according to comments and ratings.</p>
+					<h1>YouTube Data Analysis</h1>
+					<p>Welcome! SentiMedia is a web application for analyzing the sentiment associated with YouTube videos based on their comments and ratings. Simply enter the URL of the YouTube video below and click "Enter" to view the results.</p>
                 </div>
             </div>
-            <h3 class = "centered">Youtube URLs</h3>
+            <h3 class = "centered">Youtube URL</h3>
             <div class = "row">
                 <div class = "col-xs-6 centered">    
                     <input type="text" id="testMessageDouble1" style = "width:400px; border-radius: 0px;">
@@ -78,11 +68,13 @@
                             <p>Statistics</p>
                         </div>
                         <div class="col-lg-6 centered">
-                            <p>Statistics</p>
+                            <p>SentiMedia uses machine learning to read and process YouTube comments that are highly rated. It reads the comments and evaluates which ones are positive and which ones are negative. The comments are then assigned numeric values according to their connotations; positive comments are assigned the value of 1 while negative comments are assigned the value of -1. After the highly rated comments are assigned values, the values are added together and normalized. This normalized score can fall anywhere between -1 and 1 and represents the sentiment left on the video by its viewers.
+
+This number can be interpreted a representation of the YouTuber's popularity among his or her viewers. If a video has a normaized score of closer to -1, then their video has a fairly large amount of negative comments. On the other hand, if a video has a normalized score closer to 1, then their video has very few negative comments. 	</p>
                         </div>
                     </div><!-- /row -->
                </div> <!-- /container -->
-            </div><!-- /ww -->
+            </div><!-- /ww --> 	 
         </div><!-- /row -->
     </div><!-- /container -->
 
@@ -91,7 +83,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-4">
-					<h4 class = "text-center">Made at CalTech</h4>
+					<h4 class = "text-center">MADE AT HACKTECH 2017</h4>
 					<p class="text-center">
 						3/3/17 - 3/5/17<br/>
 						1200 E California Blvd, <br/>
