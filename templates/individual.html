@@ -44,7 +44,6 @@
 	    <div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2 centered">
-					<!--<img src="assets/img/user.png" alt="Stanley">-->
 					<h1>HackTech 2017</h1>
 					<p>Welcome Hackers! TubeStats is a web application where you can type in the URL of a youtube video and get back its statistics according to comments and ratings.</p>
                     <form action="individual" method="post">
@@ -60,12 +59,16 @@
 	<!-- +++++ Projects Section +++++ -->
 	<div class="container pt">
 		<div class="row mt centered">
-		<p>Video </p>
-		<iframe width="853" height="480" src="https://www.youtube.com/embed/YqeW9_5kURI" frameborder="0" allowfullscreen></iframe>
+        {% if url %}
+		<p>Video</p>
+        <iframe width="853" height="480" src="https://www.youtube.com/watch?v=ulANhxcLvyU" frameborder="0" allowfullscreen></iframe>
+        {% endif %}
 		</div><!-- /row -->
 		<div class="row mt centered">
 		<div id="ww">
-            <p>The comment score was {{comments_score}}</p>
+            {% if normalized_score %}
+            <p>The comment score was {{ normalized_score }}</p>
+            {% endif %}
 	    <div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2 centered">

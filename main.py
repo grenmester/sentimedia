@@ -12,12 +12,16 @@ def main():
 def individual():
     classifier = get_classifier(training_messages)
     url = request.form['video-url']
+    print(url)
     video_comments = get_video_comments(url)
     comments_score = 0
     for comment in video_comments:
         comments_score += analyze(comment, classifier)
+    normalized_score = comments_score / len(video_comments)
 
-    return render_template('individual.html', comments_score = comments_score)
+    return render_template('individual.html',
+                           normalized_score = normalized_score,
+                           url = url)
 
 @app.route('/comparison')
 def comparison():
