@@ -23,9 +23,9 @@ def individual():
                            normalized_score = normalized_score,
                            url = url)
 
-#@app.route('/comparison')
-#def comparison():
-#    return render_template('comparison.html')
+@app.route('/comparison')
+def comparison():
+   return render_template('comparison.html')
 
 @app.route('/ajax', methods = ['POST'])
 def ajax_request():
