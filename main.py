@@ -1,6 +1,7 @@
 from training_data import messages
 from analyze_sentiment import get_classifier, analyze
 from flask import Flask, render_template, request
+
 app = Flask(__name__)
 
 @app.route('/')
