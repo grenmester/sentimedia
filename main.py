@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 from training_data import training_messages
 from analyze_sentiment import get_classifier, analyze
-from comment_scrape import get_video_comments, get_embed_id
+from comment_scrape import get_video_comments, get_embed_id, get_channel_comments
 import csv
 app = Flask(__name__)
 
@@ -27,7 +27,17 @@ def graph():
 
 @app.route('/rankings')
 def rankings():
-    return render_template('rankings.html')
+    classifier = get_classifier(training_messages)
+    list_of_channels = ["https://www.youtube.com/channel/UCpf42a3Bz4M9AdRDBXukneQ"]
+    list_of_scores = []
+    for channel in list_of_channels:
+        comments = get_channel_comments(channel)
+        score = 0
+        for comment in comments:
+            score += analyze(comment, classifier)
+        normalized_score = score / len(comments)
+        list_of_scores.append((channel, normalized_score))
+    return render_template('rankings.html', list_of_scores = list_of_scores)
 
 @app.route('/individual_ajax', methods = ['POST'])
 def individual_ajax_request():
@@ -37,23 +47,8 @@ def individual_ajax_request():
 
     video_comments = get_video_comments(full_url)
     comments_score = 0
-    num_positive = 0
-    num_negative = 0
     for comment in video_comments:
         comments_score += analyze(comment, classifier)
-        if comments_score == -1:
-            num_negative += 1
-        else:
-            num_positive += 1
-
-    file = open('comments_score_tally.csv', 'w+')
-    fieldnames = ['label', 'count']
-    writer = csv.DictWriter(file,fieldnames = fieldnames)
-    writer.writeheader()
-    writer.writerow({'label':'positive', 'count':num_positive})
-    writer.writerow({'label':'negative', 'count':num_negative})
-    file.close()
-
     normalized_score = comments_score / len(video_comments)
 
     return jsonify(url = url, normalized_score = normalized_score)

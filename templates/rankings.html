@@ -42,11 +42,6 @@
 				<div class="col-lg-8 col-lg-offset-2 centered">
 					<h1>YouTube Data Analysis</h1>
 					<p>Welcome! SentiMedia is a web application for analyzing the sentiment associated with YouTube videos based on their comments and ratings. Simply enter the URL of the YouTube video below and click "Enter" to view the results.</p>
-                    <form action="" method="post">
-				        <label>Youtube URL: </label>
-				        <input type="text" name="video-url" id="video-url" styles="width:450px">
-				        <input type="button" value="Enter" onclick="return loadXMLIndividual()">
-                    </form>
                 </div><!-- /col-lg-8 -->
 			</div><!-- /row -->
 	    </div> <!-- /container -->
@@ -55,8 +50,19 @@
 	<!-- +++++ Projects Section +++++ -->
 	<div class="container pt">
 		<div class="row mt centered">
-        <iframe id="url" width="853" height="480" src="https://www.youtube.com/embed/MoB2OhPu6w8" frameborder="0" allowfullscreen></iframe>
-		</div><!-- /row -->
+	    <table align="center">
+            <tr>
+                <th>Channel</th>
+                <th>Sentiment</th>
+            </tr>
+            {% for item in list_of_scores %}
+            <tr>
+                <td>{{ item[0] }}</td>
+                <td>{{ item[1] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        </div><!-- /row -->
 		<div class="row mt centered">
 		    <div id="ww">
                 <p>SentiMedia uses machine learning to read and process YouTube comments that are highly rated. It reads the comments and evaluates which ones are positive and which ones are negative. The comments are then assigned numeric values according to their connotations; positive comments are assigned the value of 1 while negative comments are assigned the value of -1. After the highly rated comments are assigned values, the values are added together and normalized. This normalized score can fall anywhere between -1 and 1 and represents the sentiment left on the video by its viewers.</p>
