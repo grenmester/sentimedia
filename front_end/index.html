@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+	<title>TubeStats</title>
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/main.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="assets/js/hover.zoom.js"></script>
+    <script src="assets/js/hover.zoom.conf.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+  
+  <script>
+  		function viewMode(v) {
+			var i;
+			var x = document.getElementsByClassName("view");
+			for (i = 0; i < x.length; i++) {
+				x[i].style.display = "none"; 
+			}
+			document.getElementById(v).style.display = "block"; 
+		}
+  </script>
+
+    <!-- Static navbar -->
+    <div class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">TubeStats - Individual</a>
+        </div>
+		         </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+        <div class="navbar-collapse collapse">
+		
+			<ul class="nav navbar-nav navbar-center">
+				<div class="col-lg-7" style = "float:left">
+					<li><a href="index.html">Individual</a></li>
+				</div>
+				<div class="col-lg-8" style = "float:right">
+					<li><a href="comparison.html">Comparison</a></li>
+				</div>
+         <!--<li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>-->
+			</ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+	<!-- +++++ Welcome Section +++++ -->
+	<div id="ww">
+	    <div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2 centered">
+					<!--<img src="assets/img/user.png" alt="Stanley">-->
+					<h1>HackTech 2017</h1>
+					<p>Welcome Hackers! TubeStats is a web application where you can type in the URL of a youtube video and get back its statistics according to comments and ratings.</p>
+					<!--<p>Please, consider to register to <a href="http://eepurl.com/IcgkX">our newsletter</a> to be updated with our latest themes and freebies. Like always, you can use this theme in any project freely. Share it with your friends.</p>-->
+				
+				<label>Youtube URL: </label>
+				<input type="text" id="testMessageSingle" width="6px">
+				<input type="button" onclick='computeSentimentSingle();' value="Launch">
+				</div><!-- /col-lg-8 -->
+			</div><!-- /row -->
+	    </div> <!-- /container -->
+	</div><!-- /ww -->
+	
+	
+	<!-- +++++ Projects Section +++++ -->
+	
+	<div class="container pt">
+		<div class="row mt centered">	
+		<p>Video </p>
+		<iframe width="853" height="480" src="https://www.youtube.com/embed/YqeW9_5kURI" frameborder="0" allowfullscreen></iframe>
+		</div><!-- /row -->
+		<div class="row mt centered">	
+		<div id="ww">
+		<p>Statistics </p>
+	    <div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2 centered">
+					<!--<img src="assets/img/user.png" alt="Stanley">-->
+				
+				</div><!-- /col-lg-8 -->
+			</div><!-- /row -->
+	    </div> <!-- /container -->
+	</div><!-- /ww -->
+		</div><!-- /row -->
+	</div><!-- /container -->
+	
+	
+	<!-- +++++ Footer Section +++++ -->
+	
+	<div id="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4">
+					<h4 class = "text-center">Made at Cal Tech</h4>
+					<p class="text-center">
+						3/3/17 - 3/5/17<br/>
+						1200 E California Blvd, <br/>
+						Pasadena, CA 91125
+					</p>
+				</div><!-- /col-lg-4 -->
+				
+				<div class="col-lg-4">
+					<h4 class="text-center">Our Links</h4>
+					<p class = "text-center">
+						<a href="https://github.com/grenmester/hacktech" target="_blank">Github</a><br/>
+						<a href="#">Devpost</a><br/>
+					</p>
+				</div><!-- /col-lg-4 -->
+				
+				<div class = "col-lg-4">
+					<h4 class = "text-center">The Team:</h4>
+					
+					<div class="col-lg-6" style = "float:left">
+						<p class="text-center">Arkin Gupta<br/>
+						Ryan Fong    </p>
+					</div><!-- /col-lg-4 -->
+					<div class = "col-lg-6" style = "float:right">
+						<p class = "text-center">Jacky Lee</br>
+						Terrence Ho</p>
+				</div>
+				
+				
+			
+			</div>
+		
+		</div>
+	</div>
+	
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/bootstrap.min.js"></script>
+  </body>
+</html>
