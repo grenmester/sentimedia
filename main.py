@@ -7,7 +7,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def main():
-    return render_template('individual.html')
+    return render_template('logistics.html')
+
+@app.route('/logistics')
+def logistics():
+    return render_template('logistics.html')
 
 @app.route('/individual')
 def individual():
@@ -45,7 +49,7 @@ def individual_ajax_request():
     file = open('comments_score_tally.csv', 'w+')
     fieldnames = ['label', 'count']
     writer = csv.DictWriter(file,fieldnames = fieldnames)
-    writer.writeheader() 
+    writer.writeheader()
     writer.writerow({'label':'positive', 'count':num_positive})
     writer.writerow({'label':'negative', 'count':num_negative})
     file.close()
