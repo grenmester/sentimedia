@@ -89,7 +89,7 @@ a:after {
     padding: 0;
 }
 
-
+/*NavBars*/
 .navbar {
 	text-transform: uppercase;
 }
@@ -132,10 +132,14 @@ a:after {
 
 
 /* Helpers */
+.smt {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 
 .mt {
-	margin-top: 40px;
-	margin-bottom: 40px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .pt {
@@ -146,6 +150,7 @@ a:after {
 .white-link {
 	color: #FFFFFF;
 }
+
 
 
 /* +++++ WRAP SECTIONS +++++ */

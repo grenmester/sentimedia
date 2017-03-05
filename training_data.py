@@ -16,4 +16,4 @@ test_messages = [('I feel happy this morning', 'positive'),
                  ('My house is not great', 'negative'),
                  ('Your song is annoying', 'negative')]
 
-messages = pos_messages + neg_messages
+training_messages = pos_messages + neg_messages
