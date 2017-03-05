@@ -5,7 +5,15 @@ app = Flask(__name__)
 
 @app.route('/')
 def main():
-    return render_template('index.html')
+    return render_template('individual.html')
+
+@app.route('/individual')
+def individual():
+    return render_template('individual.html')
+
+@app.route('/comparison')
+def comparison():
+    return render_template('comparison.html')
 
 @app.route('/sentiment', methods=['POST'])
 def sentiment():
