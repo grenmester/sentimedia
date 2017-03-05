@@ -13,30 +13,20 @@
     <link href="/static/css/main.css" rel="stylesheet">
   </head>
   <body>
-    <!-- Static navbar -->
-    <div class="navbar navbar-inverse navbar-static-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <h2>TubeStats - Individual</h2>
-        </div><!--/.nav-collapse -->
-      </div>
-    </div>
-        <div class="navbar-collapse collapse">
-			<ul class="nav navbar-center">
-				<div class="col-lg-6">
-					<li><a href="individual">Individual</a></li>
-				</div>
-				<div class="col-lg-6">
-					<li><a href="comparison">Comparison</a></li>
-				</div>
-			</ul>
-        </div><!--/.nav-collapse -->
-      </div>
+    <div class = "container-fluid">
+        <div class = "row" style = "background-color: #1abc9c; display: flex">
+            <div class = "col-xs-12">
+                <h2 style ="margin-left:20px;">TubeStats - Individual</h2>
+            </div>
+        </div>
+        <div class = "row">
+            <div class = "col-xs-6 centered">
+                <a href="individual" class="btn-block" style = "font-size: large; margin-top: 15px; margin-bottom: 15px" role="button">Individual</a>
+            </div>
+            <div class = "col-xs-6 centered">
+                <a href="comparison" class="btn-block" style = "font-size: large; margin-top: 15px; margin-bottom: 15px" role="button">Comparison</a>
+            </div>
+        </div>
     </div>
 
 	<!-- +++++ Welcome Section +++++ -->
@@ -47,11 +37,11 @@
 					<h1>HackTech 2017</h1>
 					<p>Welcome Hackers! TubeStats is a web application where you can type in the URL of a youtube video and get back its statistics according to comments and ratings.</p>
                     <form action="individual" method="post">
-                        <label>Youtube URL: </label>
-				        <input type="text" name="video-url">
+				        <label>Youtube URL: </label>
+				        <input type="text" name="video-url" styles="width:450px">
 				        <input type="submit" value="Submit">
                     </form>
-				</div><!-- /col-lg-8 -->
+                </div><!-- /col-lg-8 -->
 			</div><!-- /row -->
 	    </div> <!-- /container -->
 	</div><!-- /ww -->
