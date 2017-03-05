@@ -3,7 +3,11 @@ from training_data import training_messages
 from analyze_sentiment import get_classifier, analyze
 from comment_scrape import get_video_comments, get_embed_id, get_channel_comments
 import csv
+
+# [start config]
 app = Flask(__name__)
+CLOUD_STORAGE_BUCKET = os.environm['CLOUD_STORAGE_BUCKET']
+# [end config]
 
 @app.route('/')
 def main():
