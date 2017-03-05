@@ -8,9 +8,9 @@
     <meta name="author" content="">
 	<title>SentiMedia</title>
     <!-- Bootstrap core CSS -->
-    <link href="/static/css/bootstrap.css" rel="stylesheet">
+    <link href="/static/css/bootstrap.css?q=1280549780" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="/static/css/main.css" rel="stylesheet">
+    <link href="/static/css/main.css?q=1280549780" rel="stylesheet">
   </head>
   <body>
     <div class = "container-fluid">
@@ -53,9 +53,9 @@
 	<!-- +++++ Projects Section +++++ -->
 	<div class="container pt">
 		<div class="row mt centered">
-            <p id="normalizedScore"></p>
-            <iframe id="url1" width="512" height="288" src="https://www.youtube.com/embed/MoB2OhPu6w8" frameborder="0" allowfullscreen></iframe>
-            <iframe id="url2" width="512" height="288" src="https://www.youtube.com/embed/MoB2OhPu6w8" frameborder="0" allowfullscreen></iframe>
+            <h4 id="normalizedScore"></h4>
+            <iframe id="url1" width="512" height="288" src="https://www.youtube.com/embed/Yfb0OHrnYTY" frameborder="0" allowfullscreen></iframe>
+            <iframe id="url2" width="512" height="288" src="https://www.youtube.com/embed/GZmK-3sZ9hc" frameborder="0" allowfullscreen></iframe>
 		</div><!-- /row -->
 		<div class="row mt centered">
 		    <div id="ww">
@@ -80,8 +80,8 @@
 				<div class="col-lg-4">
 					<h4 class="text-center">Our Links</h4>
 					<p class = "text-center">
-						<a href="https://github.com/grenmester/hacktech" target="_blank">Github</a><br/>
-						<a href="#">Devpost</a><br/>
+						<a class="white-link" href="https://github.com/grenmester/hacktech" target="_blank">Github</a><br/>
+						<a class="white-link" href="#">Devpost</a><br/>
 					</p>
 				</div><!-- /col-lg-4 -->
 				<div class = "col-lg-4">
@@ -97,10 +97,10 @@
 			</div>
 		</div>
 	</div>
-    <script src="/static/js/hover.zoom.js"></script>
-    <script src="/static/js/hover.zoom.conf.js"></script>
-    <script src="/static/js/bootstrap.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="/static/js/hover.zoom.js?q=1280549780"></script>
+    <script src="/static/js/hover.zoom.conf.js?q=1280549780"></script>
+    <script src="/static/js/bootstrap.min.js?q=1280549780"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js?q=1280549780"></script>
     <script>
         function loadXMLComparison() {
             var req = new XMLHttpRequest()
@@ -115,7 +115,7 @@
                     else
                     {
                         var response = JSON.parse(req.responseText)
-                        document.getElementById('normalizedScore').innerHTML = "The left video has a normalized score of " + response.normalized_score_1 + " while the other has " + response.normalized_score_2 + "."
+                        document.getElementById('normalizedScore').innerHTML = "The video on the left has a normalized score of " + response.normalized_score_1 + " while the video on the right has a score of " + response.normalized_score_2 + ". The difference in sentiment between the two videos is " + Math.abs(response.normalized_score_1 - response.normalized_score_2) + "."
                         document.getElementById('url1').setAttribute("src", response.url1)
                         document.getElementById('url2').setAttribute("src", response.url2)
                     }
