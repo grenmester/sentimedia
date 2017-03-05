@@ -1,5 +1,6 @@
+*.csv
 *.DS_Store
 *.pyc
 *.swp
 *.swo
-__pycache__/
+*__pycache__/
