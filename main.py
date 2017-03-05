@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, jsonify
 from training_data import training_messages
 from analyze_sentiment import get_classifier, analyze
 from comment_scrape import get_video_comments, get_embed_id
+import csv
 app = Flask(__name__)
 
 @app.route('/')
@@ -15,8 +16,23 @@ def individual():
     print(url)
     video_comments = get_video_comments(url)
     comments_score = 0
+    num_positive = 0
+    num_negative = 0
     for comment in video_comments:
-        comments_score += analyze(comment, classifier)
+        score = analyze(comment, classifier)
+        if score == -1:
+            num_negative += 1
+        else:
+            num_positive += 1
+        comments_score += score
+
+    with open('comments_score_tally.csv', 'w+') as file:
+        fieldnames = ['label', 'count']
+        writer = csv.DictWriter(file, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerow({'label':'positive', 'count':num_positive})
+        writer.writerow({'label':'negative', 'count':num_negative})
+        file.close()
     normalized_score = comments_score / len(video_comments)
 
     return render_template('individual.html',
