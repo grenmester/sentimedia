@@ -29,11 +29,12 @@ def extract_features(document):
     return features
 
 def get_classifier(messages):
-    '''given a list of messages, returns a classifier trained by the messages'''
+    '''takes in training data in the form of a tuple containing a message and whether it is positive or negative and returns a classifier'''
     processed_messages = process(messages)
     training_set = nltk.classify.apply_features(extract_features, processed_messages)
     classifier = nltk.NaiveBayesClassifier.train(training_set)
     return classifier
 
 def analyze(message, classifier):
+    '''takes in a message and a classifier and returns whether the classifier thinks it is positive or negative'''
     return classifier.classify(extract_features(message.split()))
