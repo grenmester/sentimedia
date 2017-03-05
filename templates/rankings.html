@@ -16,7 +16,7 @@
     <div class = "container-fluid">
         <div class = "row" style = "background-color: #1abc9c; display: flex">
             <div class = "col-xs-12">
-                <h2 style ="margin-left:20px;">SentiMedia - Individual</h2>
+                <h2 style ="margin-left:20px;">SentiMedia - Channel Rankings</h2>
             </div>
         </div>
         <div class = "row">
@@ -52,13 +52,13 @@
 	<!-- +++++ Projects Section +++++ -->
 	<div class="container pt">
 		<div class="row mt centered">
-            <h3 id="normalizedScore"></h3>
-            <iframe id="url" width="853" height="480" src="https://www.youtube.com/embed/MoB2OhPu6w8" frameborder="0" allowfullscreen></iframe>
+        <iframe id="url" width="853" height="480" src="https://www.youtube.com/embed/MoB2OhPu6w8" frameborder="0" allowfullscreen></iframe>
 		</div><!-- /row -->
 		<div class="row mt centered">
 		    <div id="ww">
                 <p>SentiMedia uses machine learning to read and process YouTube comments that are highly rated. It reads the comments and evaluates which ones are positive and which ones are negative. The comments are then assigned numeric values according to their connotations; positive comments are assigned the value of 1 while negative comments are assigned the value of -1. After the highly rated comments are assigned values, the values are added together and normalized. This normalized score can fall anywhere between -1 and 1 and represents the sentiment left on the video by its viewers.</p>
                 <p>This number can be interpreted a representation of the YouTuber's popularity among his or her viewers. If a video has a normaized score of closer to -1, then their video has a fairly large amount of negative comments. On the other hand, if a video has a normalized score closer to 1, then their video has very few negative comments.</p>
+                <p id="normalizedScore"></p>
 	        </div><!-- /ww -->
 		</div><!-- /row -->
 	</div><!-- /container -->
