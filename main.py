@@ -30,7 +30,7 @@ def rankings():
     classifier = get_classifier(training_messages)
     list_of_channels = [("https://www.youtube.com/channel/UCC552Sd-3nyi_tk2BudLUzA", "AsapScience"),
                         ("https://www.youtube.com/channel/UC0G2qz-hoaCswQNgoWU_LTw", "ESL"),
-                        ("https://www.youtube.com/channel/UCH4BNI0-FOK2dMXoFtViWHw", "It’s Okay to be Smart"),
+                        ("https://www.youtube.com/channel/UCH4BNI0-FOK2dMXoFtViWHw", "It's Okay to be Smart"),
                         ("https://www.youtube.com/channel/UCR4CzoByWRJ7ThJYcM6jajA", "ComedyOn"),
                         ("https://www.youtube.com/channel/UC1xDf3axk2VWMEaMMFrKJfQ", "Funkee Bunch"),
                         ("https://www.youtube.com/channel/UCJUmE61LxhbhudzUugHL2wQ", "codeDamn"),
@@ -89,4 +89,5 @@ def comparison_ajax_request():
     return jsonify(url1 = url1, url2 = url2, normalized_score_1 = normalized_score_1, normalized_score_2 = normalized_score_2)
 
 if __name__ == '__main__':
+    print "running"
     app.run(debug=True)
