@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from training_data import training_messages
 from analyze_sentiment import get_classifier, analyze
-from comment_scrape import get_video_comments
+from comment_scrape import *
 app = Flask(__name__)
 
 @app.route('/')
