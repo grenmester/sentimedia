@@ -61,9 +61,11 @@
 					<!--<img src="assets/img/user.png" alt="Stanley">-->
 					<h1>HackTech 2017</h1>
 					<p>Welcome Hackers! TubeStats is a web application where you can type in the URL of a youtube video and get back its statistics according to comments and ratings.</p>
-				<label>Youtube URL: </label>
-				<input type="text" id="testMessageSingle" width="6px">
-				<input type="button" onclick='computeSentimentSingle();' value="Launch">
+                    <form action="individual" method="post">
+                        <label>Youtube URL: </label>
+				        <input type="text" id="video-url">
+				        <input type="submit" value="Submit">
+                    </form>
 				</div><!-- /col-lg-8 -->
 			</div><!-- /row -->
 	    </div> <!-- /container -->
@@ -77,7 +79,7 @@
 		</div><!-- /row -->
 		<div class="row mt centered">
 		<div id="ww">
-		<p>Statistics </p>
+            <p>The comment score was {{comments_score}}</p>
 	    <div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2 centered">
