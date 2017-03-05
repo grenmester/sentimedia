@@ -17,6 +17,10 @@ def individual():
 def comparison():
     return render_template('comparison.html')
 
+@app.route('/rankings')
+def rankings():
+    return render_template('rankings.html')
+
 @app.route('/ajax', methods = ['POST'])
 def ajax_request():
     classifier = get_classifier(training_messages)
