@@ -21,14 +21,18 @@ def individual():
 def comparison():
     return render_template('comparison.html')
 
-@app.route('/graph')
-def graph():
-    return render_template('graph.html')
-
 @app.route('/rankings')
 def rankings():
     classifier = get_classifier(training_messages)
-    list_of_channels = ["https://www.youtube.com/channel/UCpf42a3Bz4M9AdRDBXukneQ"]
+    list_of_channels = [(“https://www.youtube.com/channel/UCC552Sd-3nyi_tk2BudLUzA”, “AsapScience”),
+                        (“https://www.youtube.com/channel/UC0G2qz-hoaCswQNgoWU_LTw”, “ESL”),
+                        (“https://www.youtube.com/channel/UCH4BNI0-FOK2dMXoFtViWHw”, “It’s Okay to be Smart”),
+                        (“https://www.youtube.com/channel/UCR4CzoByWRJ7ThJYcM6jajA”, “ComedyOn”),
+                        (“https://www.youtube.com/channel/UC1xDf3axk2VWMEaMMFrKJfQ”, “Funkee Bunch”),
+                        (“https://www.youtube.com/channel/UCJUmE61LxhbhudzUugHL2wQ”, “codeDamn”),
+                        (“https://www.youtube.com/channel/UCxRY9vRnEfnijWJjfUE9xzQ”, “PettyPranks”),
+                        (“https://www.youtube.com/channel/UCqVDpXKLmKeBU_yyt_QkItQ”, “YouTube Red Originals”),
+                        (“https://www.youtube.com/channel/UCpf42a3Bz4M9AdRDBXukneQ”, “ToshDeluxe”)]
     list_of_scores = []
     for channel in list_of_channels:
         comments = get_channel_comments(channel)
