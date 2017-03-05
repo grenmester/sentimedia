@@ -40,7 +40,7 @@
 					<h1>YouTube Data Analysis</h1>
 					<p>Welcome! SentiMedia is a web application for analyzing the sentiment associated with YouTube videos based on their comments and ratings. Simply enter the URL of the YouTube video below and click "Enter" to view the results.</p>
                     <form action="" method="post">
-				        <label class="centered">Youtube URL:</label>
+				        <label>Youtube URL:</label>
 				        <input type="text" name="video-url-1" id="video-url-1" styles="width:450px">
 				        <input type="text" name="video-url-2" id="video-url-2" styles="width:450px">
 				        <input type="button" value="Enter" onclick="return loadXMLComparison()">
@@ -53,9 +53,9 @@
 	<!-- +++++ Projects Section +++++ -->
 	<div class="container pt">
 		<div class="row mt centered">
-            <h3 id="normalizedScore"></h3>
-            <iframe id="url1" width="560" height="315" src="https://www.youtube.com/embed/MoB2OhPu6w8" frameborder="0" allowfullscreen></iframe>
-            <iframe id="url2" width="560" height="315" src="https://www.youtube.com/embed/MoB2OhPu6w8" frameborder="0" allowfullscreen></iframe>
+            <p id="normalizedScore"></p>
+            <iframe id="url1" width="512" height="288" src="https://www.youtube.com/embed/MoB2OhPu6w8" frameborder="0" allowfullscreen></iframe>
+            <iframe id="url2" width="512" height="288" src="https://www.youtube.com/embed/MoB2OhPu6w8" frameborder="0" allowfullscreen></iframe>
 		</div><!-- /row -->
 		<div class="row mt centered">
 		    <div id="ww">
@@ -115,15 +115,17 @@
                     else
                     {
                         var response = JSON.parse(req.responseText)
-                        document.getElementById('normalizedScore').innerHTML = "This video has a normalized score of " + response.normalized_score + "."
-                        document.getElementById('url').setAttribute("src", response.url)
+                        document.getElementById('normalizedScore').innerHTML = "The left video has a normalized score of " + response.normalized_score_1 + " while the other has " + response.normalized_score_2 + "."
+                        document.getElementById('url1').setAttribute("src", response.url1)
+                        document.getElementById('url2').setAttribute("src", response.url2)
                     }
                 }
             }
-            req.open('POST', '/ajax')
+            req.open('POST', '/comparison_ajax')
             req.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
-            var videoUrl = document.getElementById('video-url').value
-            var postVars = 'url=' + videoUrl
+            var videoUrl1 = document.getElementById('video-url-1').value
+            var videoUrl2 = document.getElementById('video-url-2').value
+            var postVars = 'url-1=' + videoUrl1 + '&url-2=' + videoUrl2
             req.send(postVars)
 
             return false
