@@ -20,13 +20,16 @@
             </div>
         </div>
         <div class = "row">
-            <div class = "col-xs-4 centered">
+		    <div class = "col-xs-3 centered">
+                <a href="logistics" class="btn-block" style = "font-size: large; margin-top: 15px; margin-bottom: 15px" role="button">Logistics</a>
+            </div>
+            <div class = "col-xs-3 centered">
                 <a href="individual" class="btn-block" style = "font-size: large; margin-top: 15px; margin-bottom: 15px" role="button">Individual</a>
             </div>
-            <div class = "col-xs-4 centered">
+            <div class = "col-xs-3 centered">
                 <a href="comparison" class="btn-block" style = "font-size: large; margin-top: 15px; margin-bottom: 15px" role="button">Comparison</a>
             </div>
-            <div class = "col-xs-4 centered">
+            <div class = "col-xs-3 centered">
                 <a href="rankings" class="btn-block" style = "font-size: large; margin-top: 15px; margin-bottom: 15px" role="button">Channel Rankings</a>
             </div>
         </div>
@@ -58,7 +61,9 @@
 		    <div id="ww">
                 <p>SentiMedia uses machine learning to read and process YouTube comments that are highly rated. It reads the comments and evaluates which ones are positive and which ones are negative. The comments are then assigned numeric values according to their connotations; positive comments are assigned the value of 1 while negative comments are assigned the value of -1. After the highly rated comments are assigned values, the values are added together and normalized. This normalized score can fall anywhere between -1 and 1 and represents the sentiment left on the video by its viewers.</p>
                 <p>This number can be interpreted a representation of the YouTuber's popularity among his or her viewers. If a video has a normaized score of closer to -1, then their video has a fairly large amount of negative comments. On the other hand, if a video has a normalized score closer to 1, then their video has very few negative comments.</p>
-                <p id="normalizedScore"></p>
+				<p>In order to prepare our program to complete these sentiment evaluations, we coded it to do machine learning.  We passed our program a data set consisting of over 1 million pre-labeled tweets. All of the tweets were labeled as either negative or positive.  from which it would iterate over and learn from recurring patterns. Although we can't perfect it's accuracy, passing it over 1 million values definitely brought us closer to that goal. Lurking variables that may skew the outcome include sarcastic comments, jokes, slang, and spam comments.</p>
+                <p>Comment sentiment ratios differ from pure video ratings (thumbs up and down) because comments provide more insight into why the video did as well (or as bad) as it did. Future functionalities that we'd like to implement include pulling the most recurring key words, displaying graphs to better compare and visualize data, and pulling from sources other than YouTube comments.</p>
+				<p id="normalizedScore"></p>
 	        </div><!-- /ww -->
 		</div><!-- /row -->
 	</div><!-- /container -->

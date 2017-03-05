@@ -8,19 +8,19 @@
     <meta name="author" content="">
 	<title>SentiMedia</title>
     <!-- Bootstrap core CSS -->
-    <link href="/static/css/bootstrap.css?q=1280549780" rel="stylesheet">
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="/static/css/main.css?q=1280549780" rel="stylesheet">
+    <link href="/static/css/main.css" rel="stylesheet">
   </head>
   <body>
     <div class = "container-fluid">
         <div class = "row" style = "background-color: #1abc9c; display: flex">
             <div class = "col-xs-12">
-                <h2 style ="margin-left:20px;">SentiMedia - Comparison</h2>
+                <h2 style ="margin-left:20px;">SentiMedia - Logistics</h2>
             </div>
         </div>
         <div class = "row">
-			<div class = "col-xs-3 centered">
+		    <div class = "col-xs-3 centered">
                 <a href="logistics" class="btn-block" style = "font-size: large; margin-top: 15px; margin-bottom: 15px" role="button">Logistics</a>
             </div>
             <div class = "col-xs-3 centered">
@@ -42,28 +42,24 @@
 				<div class="col-lg-8 col-lg-offset-2 centered">
 					<h1>YouTube Data Analysis</h1>
 					<p>Welcome! SentiMedia is a web application for analyzing the sentiment associated with YouTube videos based on their comments and ratings. Simply enter the URL of the YouTube video below and click "Enter" to view the results.</p>
-                    <form action="" method="post">
-				        <label>Youtube URL:</label>
-				        <input type="text" name="video-url-1" id="video-url-1" styles="width:450px">
-				        <input type="text" name="video-url-2" id="video-url-2" styles="width:450px">
-				        <input type="button" value="Enter" onclick="return loadXMLComparison()">
-                    </form>
-                </div>
-            </div>
-	    </div>
-	</div>
+
+                </div><!-- /col-lg-8 -->
+			</div><!-- /row -->
+	    </div> <!-- /container -->
+	</div><!-- /ww -->
 
 	<!-- +++++ Projects Section +++++ -->
 	<div class="container pt">
 		<div class="row mt centered">
-            <h4 id="normalizedScore"></h4>
-            <iframe id="url1" width="512" height="288" src="https://www.youtube.com/embed/Yfb0OHrnYTY" frameborder="0" allowfullscreen></iframe>
-            <iframe id="url2" width="512" height="288" src="https://www.youtube.com/embed/GZmK-3sZ9hc" frameborder="0" allowfullscreen></iframe>
+        <iframe id="url" width="853" height="480" src="https://www.youtube.com/embed/MoB2OhPu6w8" frameborder="0" allowfullscreen></iframe>
 		</div><!-- /row -->
 		<div class="row mt centered">
 		    <div id="ww">
                 <p>SentiMedia uses machine learning to read and process YouTube comments that are highly rated. It reads the comments and evaluates which ones are positive and which ones are negative. The comments are then assigned numeric values according to their connotations; positive comments are assigned the value of 1 while negative comments are assigned the value of -1. After the highly rated comments are assigned values, the values are added together and normalized. This normalized score can fall anywhere between -1 and 1 and represents the sentiment left on the video by its viewers.</p>
                 <p>This number can be interpreted a representation of the YouTuber's popularity among his or her viewers. If a video has a normaized score of closer to -1, then their video has a fairly large amount of negative comments. On the other hand, if a video has a normalized score closer to 1, then their video has very few negative comments.</p>
+				<p>In order to prepare our program to complete these sentiment evaluations, we coded it to do machine learning.  We passed our program a data set consisting of over 1 million pre-labeled tweets. All of the tweets were labeled as either negative or positive.  from which it would iterate over and learn from recurring patterns. Although we can't perfect it's accuracy, passing it over 1 million values definitely brought us closer to that goal. Lurking variables that may skew the outcome include sarcastic comments, jokes, slang, and spam comments.</p>
+                <p>Comment sentiment ratios differ from pure video ratings (thumbs up and down) because comments provide more insight into why the video did as well (or as bad) as it did. Future functionalities that we'd like to implement include pulling the most recurring key words, displaying graphs to better compare and visualize data, and pulling from sources other than YouTube comments.</p>
+				<p id="normalizedScore"></p>
 	        </div><!-- /ww -->
 		</div><!-- /row -->
 	</div><!-- /container -->
@@ -83,8 +79,8 @@
 				<div class="col-lg-4">
 					<h4 class="text-center">Our Links</h4>
 					<p class = "text-center">
-						<a class="white-link" href="https://github.com/grenmester/hacktech" target="_blank">Github</a><br/>
-						<a class="white-link" href="#">Devpost</a><br/>
+						<a href="https://github.com/grenmester/hacktech" target="_blank">Github</a><br/>
+						<a href="#">Devpost</a><br/>
 					</p>
 				</div><!-- /col-lg-4 -->
 				<div class = "col-lg-4">
@@ -100,12 +96,12 @@
 			</div>
 		</div>
 	</div>
-    <script src="/static/js/hover.zoom.js?q=1280549780"></script>
-    <script src="/static/js/hover.zoom.conf.js?q=1280549780"></script>
-    <script src="/static/js/bootstrap.min.js?q=1280549780"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js?q=1280549780"></script>
+    <script src="/static/js/hover.zoom.js"></script>
+    <script src="/static/js/hover.zoom.conf.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script>
-        function loadXMLComparison() {
+        function loadXMLIndividual() {
             var req = new XMLHttpRequest()
             req.onreadystatechange = function()
             {
@@ -118,17 +114,15 @@
                     else
                     {
                         var response = JSON.parse(req.responseText)
-                        document.getElementById('normalizedScore').innerHTML = "The video on the left has a normalized score of " + response.normalized_score_1 + " while the video on the right has a score of " + response.normalized_score_2 + ". The difference in sentiment between the two videos is " + Math.abs(response.normalized_score_1 - response.normalized_score_2) + "."
-                        document.getElementById('url1').setAttribute("src", response.url1)
-                        document.getElementById('url2').setAttribute("src", response.url2)
+                        document.getElementById('normalizedScore').innerHTML = "This video has a normalized score of " + response.normalized_score + "."
+                        document.getElementById('url').setAttribute("src", response.url)
                     }
                 }
             }
-            req.open('POST', '/comparison_ajax')
+            req.open('POST', '/ajax')
             req.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
-            var videoUrl1 = document.getElementById('video-url-1').value
-            var videoUrl2 = document.getElementById('video-url-2').value
-            var postVars = 'url-1=' + videoUrl1 + '&url-2=' + videoUrl2
+            var videoUrl = document.getElementById('video-url').value
+            var postVars = 'url=' + videoUrl
             req.send(postVars)
 
             return false

@@ -17,6 +17,10 @@ def individual():
 def comparison():
     return render_template('comparison.html')
 
+@app.route('/graph')
+def graph():
+    return render_template('graph.html')
+
 @app.route('/rankings')
 def rankings():
     return render_template('rankings.html')
@@ -29,8 +33,23 @@ def individual_ajax_request():
 
     video_comments = get_video_comments(full_url)
     comments_score = 0
+    num_positive = 0
+    num_negative = 0
     for comment in video_comments:
         comments_score += analyze(comment, classifier)
+        if comments_score == -1:
+            num_negative += 1
+        else:
+            num_positive += 1
+
+    file = open('comments_score_tally.csv', 'w+')
+    fieldnames = ['label', 'count']
+    writer = csv.DictWriter(file,fieldnames = fieldnames)
+    writer.writeheader() 
+    writer.writerow({'label':'positive', 'count':num_positive})
+    writer.writerow({'label':'negative', 'count':num_negative})
+    file.close()
+
     normalized_score = comments_score / len(video_comments)
 
     return jsonify(url = url, normalized_score = normalized_score)
