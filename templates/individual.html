@@ -36,10 +36,10 @@
 				<div class="col-lg-8 col-lg-offset-2 centered">
 					<h1>HackTech 2017</h1>
 					<p>Welcome Hackers! TubeStats is a web application where you can type in the URL of a youtube video and get back its statistics according to comments and ratings.</p>
-                    <form action="individual" method="post">
+                    <form action="" method="post">
 				        <label>Youtube URL: </label>
-				        <input type="text" name="video-url" styles="width:450px">
-				        <input type="submit" value="Submit">
+				        <input type="text" name="video-url" id="video-url" styles="width:450px">
+				        <input type="button" value="Submit" onclick="return loadXMLIndividual()">
                     </form>
                 </div><!-- /col-lg-8 -->
 			</div><!-- /row -->
@@ -50,22 +50,18 @@
 	<div class="container pt">
 		<div class="row mt centered">
         {% if url %}
-		<p>Video</p>
+		<p id="url">Video</p>
         <iframe width="853" height="480" src="https://www.youtube.com/watch?v=ulANhxcLvyU" frameborder="0" allowfullscreen></iframe>
         {% endif %}
 		</div><!-- /row -->
 		<div class="row mt centered">
-		<div id="ww">
-            {% if normalized_score %}
-            <p>The comment score was {{ normalized_score }}</p>
-            {% endif %}
-	    <div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2 centered">
-				</div><!-- /col-lg-8 -->
-			</div><!-- /row -->
-	    </div> <!-- /container -->
-	</div><!-- /ww -->
+		    <div id="ww">
+                <div id="myDiv"></div>
+                <p id="normalizedScore">This is always here</p>
+                {% if normalized_score %}
+                <p>The comment score was {{ normalized_score }}</p>
+                {% endif %}
+	        </div><!-- /ww -->
 		</div><!-- /row -->
 	</div><!-- /container -->
 
@@ -92,7 +88,7 @@
 					<h4 class = "text-center">The Team</h4>
 					<div class="col-lg-6" style = "float:left">
 						<p class="text-center">Arkin Gupta<br/>
-						Ryan Fong    </p>
+						Ryan Fong</p>
 					</div><!-- /col-lg-4 -->
 					<div class = "col-lg-6" style = "float:right">
 						<p class = "text-center">Jacky Lee</br>
@@ -101,15 +97,40 @@
 			</div>
 		</div>
 	</div>
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/static/js/bootstrap.min.js"></script>
     <script src="/static/js/hover.zoom.js"></script>
     <script src="/static/js/hover.zoom.conf.js"></script>
-    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>')</script>
+    <script>
+        function loadXMLIndividual()
+        {
+            var req = new XMLHttpRequest()
+            req.onreadystatechange = function()
+            {
+                if (req.readyState == 4)
+                {
+                    if (req.status != 200)
+                    {
+                        //error handling code here
+                    }
+                    else
+                    {
+                        var response = JSON.parse(req.responseText)
+                        document.getElementById('normalizedScore').innerHTML = response.normalized_score
+                        document.getElementById('url').innerHTML = response.url
+
+                    }
+                }
+            }
+
+            req.open('POST', '/ajax')
+            req.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+            var videoUrl = document.getElementById('video-url').value
+            var postVars = 'url=' + videoUrl
+            req.send(postVars)
+
+            return false
+        }
+    </script>
   </body>
 </html>
