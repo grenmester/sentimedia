@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, jsonify
 from training_data import training_messages
 from analyze_sentiment import get_classifier, analyze
 from comment_scrape import get_video_comments, get_embed_id
+import csv
 app = Flask(__name__)
 
 @app.route('/')
