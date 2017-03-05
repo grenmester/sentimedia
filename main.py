@@ -15,7 +15,8 @@ def individual():
     video_comments = get_video_comments(url)
     comments_score = 0
     for comment in video_comments:
-        comments_score += analyze(message, classifier)
+        comments_score += analyze(comment, classifier)
+
     return render_template('individual.html', comments_score = comments_score)
 
 @app.route('/comparison')

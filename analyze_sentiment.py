@@ -1,5 +1,5 @@
 import nltk
-from training_data import messages
+from training_data import training_messages
 
 def process(messages):
     '''Given a lists of messages, splits the messages and deletes words with length less than 3.'''
@@ -21,7 +21,7 @@ def get_word_features(processed_messages):
 
 def extract_features(document):
     '''Given a list of strings, returns a dictionary indicating what words are contained in the input passed.'''
-    word_features = get_word_features(process(messages))
+    word_features = get_word_features(process(training_messages))
     document_words = set(document)
     features = {}
     for word in word_features:
