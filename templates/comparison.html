@@ -25,32 +25,20 @@
 		}
   </script>
 
-    <!-- Static navbar -->
-    <div class="navbar navbar-inverse navbar-static-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <h2>TubeStats - Comparison</h2>
+    <div class = "container-fluid">
+        <div class = "row" style = "background-color: #1abc9c; display: flex">
+            <div class = "col-xs-12">
+                <h2 style ="margin-left:20px;">TubeStats - Comparison</h2>
+            </div>
         </div>
-		         </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </div>
-        <div class="navbar-collapse collapse">
-			<ul class="nav navbar-center">
-				<div class="col-lg-6">
-					<li><a href="individual">Individual</a></li>
-				</div>
-				<div class="col-lg-6">
-                    <li><a href="comparison">Comparison</a></li>
-				</div>
-			</ul>
-        </div><!--/.nav-collapse -->
-      </div>
+        <div class = "row">
+            <div class = "col-xs-6 centered">
+                <a href="individual" class="btn-block" style = "font-size: large; margin-top: 15px; margin-bottom: 15px" role="button">Individual</a>
+            </div>
+            <div class = "col-xs-6 centered">
+                <a href="comparison" class="btn-block" style = "font-size: large; margin-top: 15px; margin-bottom: 15px" role="button">Comparison</a>
+            </div>
+        </div>
     </div>
 
 	<!-- +++++ Welcome Section +++++ -->
@@ -60,14 +48,20 @@
 				<div class="col-lg-8 col-lg-offset-2 centered">
 					<h1>HackTech 2017</h1>
 					<p>Welcome Hackers! TubeStats is a web application where you can type in the URL of a youtube video and get back its statistics according to comments and ratings.</p>
-				<label>Youtube URLs: </label>
-				<input type="text" id="testMessageDouble1" width="6px">
-				<input type="text" id="testMessageDouble2" width="6px">
-				<input type="button" onclick='computeSentimentSingle();' value="Launch">
-				</div><!-- /col-lg-8 -->
-			</div><!-- /row -->
-	    </div> <!-- /container -->
-	</div><!-- /ww -->
+                </div>
+            </div>
+            <h3 class = "centered">Youtube URLs</h3>
+            <div class = "row">
+                <div class = "col-xs-6 centered">    
+                    <input type="text" id="testMessageDouble1" style = "width:400px; border-radius: 0px;">
+                </div>
+                <div class = "col-xs-6 centered">    
+                    <input type="text" id="testMessageDouble2" style = "width:400px; border-radius: 0px;">
+                </div>
+            </div>
+            <div class = "row centered"><input type="button" class = "btn" onclick='computeSentimentSingle();' value="Launch"></div>
+	    </div> 
+	</div>
 
 	<!-- +++++ Projects Section +++++ -->
 	<div class="container pt">
@@ -76,18 +70,21 @@
 		<iframe width="560" height="315" src="https://www.youtube.com/embed/YqeW9_5kURI" frameborder="0" allowfullscreen></iframe>
 		<iframe width="560" height="315" src="https://www.youtube.com/embed/YqeW9_5kURI" frameborder="0" allowfullscreen></iframe>
 		</div><!-- /row -->
-		<div class="row mt centered">
-		<div id="ww">
-		<p>Statistics </p>
-	    <div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2 centered">
-				</div><!-- /col-lg-8 -->
-			</div><!-- /row -->
-	    </div> <!-- /container -->
-	</div><!-- /ww -->
-		</div><!-- /row -->
-	</div><!-- /container -->
+        <div class="row mt centered">
+            <div id="ww">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 centered">
+                            <p>Statistics</p>
+                        </div>
+                        <div class="col-lg-6 centered">
+                            <p>Statistics</p>
+                        </div>
+                    </div><!-- /row -->
+               </div> <!-- /container -->
+            </div><!-- /ww -->
+        </div><!-- /row -->
+    </div><!-- /container -->
 
 	<!-- +++++ Footer Section +++++ -->
 	<div id="footer">

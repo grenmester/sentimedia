@@ -83,7 +83,7 @@ a:after {
     padding: 0;
 }
 
-
+/*NavBars*/
 .navbar {
 	text-transform: uppercase;
 }
@@ -126,16 +126,21 @@ a:after {
 
 
 /* Helpers */
+.smt {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 
 .mt {
-	margin-top: 40px;
-	margin-bottom: 40px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .pt {
 	padding-top: 50px;
 	padding-bottom: 50px;
 }
+
 
 
 /* +++++ WRAP SECTIONS +++++ */
