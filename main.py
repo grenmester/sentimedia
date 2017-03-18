@@ -3,11 +3,7 @@ from training_data import training_messages
 from analyze_sentiment import get_classifier, analyze
 from comment_scrape import get_video_comments, get_embed_id, get_channel_comments
 import csv
-
-# [start config]
 app = Flask(__name__)
-CLOUD_STORAGE_BUCKET = os.environm['CLOUD_STORAGE_BUCKET']
-# [end config]
 
 @app.route('/')
 def main():
@@ -89,5 +85,4 @@ def comparison_ajax_request():
     return jsonify(url1 = url1, url2 = url2, normalized_score_1 = normalized_score_1, normalized_score_2 = normalized_score_2)
 
 if __name__ == '__main__':
-    print "running"
     app.run(debug=True)

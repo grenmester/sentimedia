@@ -1,21 +1,22 @@
-import urllib2
+import requests
 import csv
 
 def parse_csv(data_file):
     '''given a csv file containing sentiment data, returns a list of tuples containing the text and the sentiment'''
-    response = urllib2.urlopen(data_file)
-    data = response.read()
-    reader = csv.DictReader(data)
+    r = requests.get(data_file)
+    text = r.iter_lines(decode_unicode=True)
+    reader = csv.reader(text, delimiter=',')
+
     data_list = []
 
     for row in reader:
         try:
-            if row['Sentiment'] == '0':
+            if row[1] == '0':
                 sentiment = 'negative'
             else:
                 sentiment = 'positive'
 
-            pair = (row['SentimentText'].strip(), sentiment)
+            pair = (row[3].strip(), sentiment)
             data_list.append(pair)
         except:
             pass
