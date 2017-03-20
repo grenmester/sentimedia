@@ -3,7 +3,7 @@ import sys
 from urllib import *
 import argparse
 from urllib.parse import urlparse, urlencode, parse_qs
-from urllib.request import  urlopen
+from urllib.request import urlopen
 
 def get_video_comments(vid):
     final_comments = []
@@ -13,7 +13,6 @@ def get_video_comments(vid):
             text = comment["snippet"]["textDisplay"]
             final_comments.append(text)
 
-
     try:
         video_id = urlparse(str(vid))
         q = parse_qs(video_id.query)
@@ -22,9 +21,13 @@ def get_video_comments(vid):
     except:
         print("Invalid YouTube URL")
 
+    url_data = urlparse(vid)
+    query = parse_qs(url_data.query)
+    video = query["v"][0]
+
     parms = {
         'part': 'snippet',
-        'videoId': 'F90Cw4l-8NY',
+        'videoId': video,
         'key': 'AIzaSyBsuQEzXjJ81-8ywBftLva-0j19hWNMc1w'
             }
 
