@@ -6,10 +6,6 @@ SentiMedia is a website which performs sentiment analysis on the comments sectio
 
 This website was created using Python's [Flask](http://flask.pocoo.org/) framework. The sentiment analysis was done with the help of Python's [NLTK](http://www.nltk.org/) (Natural Language Toolkit) library and is hosted by [Google App Engine](https://cloud.google.com/appengine/).
 
-## Link
-
-You can visit the website [here](https://nth-circlet-160511.appspot.com/).
-
 ## Credits
 
 SentiMedia was created by Jacky Lee, Arkin Gupta, Terrence Ho, and Ryan Fong.
